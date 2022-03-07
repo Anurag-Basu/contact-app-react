@@ -26,7 +26,7 @@ function Home() {
           <>{contact.error}</>
         ) : (
           // otherwise render the below code
-          <table>
+          <table className="container">
             <thead>
               <tr className="table-heading bg-dark text-light">
                 <th>Name</th>
