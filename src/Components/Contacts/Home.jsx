@@ -54,7 +54,7 @@ function Home() {
                         </Link>
 
                         <button
-                          className="btn btn-sm btn-danger px-2"
+                          className="btn btn-sm btn-danger m-2 px-2"
                           //  pass the user email to deleteContact function
                           onClick={() => dispatch(deleteContact(user.email))}
                         >
