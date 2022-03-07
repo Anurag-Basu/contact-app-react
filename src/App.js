@@ -1,23 +1,37 @@
-import logo from './logo.svg';
-import './App.css';
+import "./App.css";
+import { ToastContainer } from "react-toastify";
+import 'react-toastify/dist/ReactToastify.css';
+
+import Navbar from "./Components/Contacts/Navbar";
+import { Route, Routes } from "react-router-dom";
+import Home from "./Components/Contacts/Home";
+import EditContact from "./Components/Contacts/EditContact";
+import AddContacts from "./Components/Contacts/AddContact";
+import {useDispatch } from "react-redux";
+import { useEffect } from "react";
+import { fetchUsers } from "./Components/Redux/ContactActions";
+
 
 function App() {
+  const dispatch = useDispatch()
+
+  // dispatch fetchUsers 
+  useEffect(() => {
+      dispatch(fetchUsers())
+  },[])
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <div className="App">
+        {/* for notification from react-toastify */}
+      <ToastContainer />
+      {/* navbar component */}
+      <Navbar />
+      {/* adding routes */}
+      <Routes>
+        <Route path="/" element={<Home/>} />
+        <Route path="/edit/:id" element={<EditContact/>} />
+        <Route path="/add" element={<AddContacts/>} />
+      </Routes>
     </div>
   );
 }
