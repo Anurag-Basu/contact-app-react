@@ -59,17 +59,14 @@ const ContactReducer = (state = initialState, action) => {
         users,
       };
 
-    case DELETE_CONTACT:
+    case DELETE_CONTACT: 
       const email = action.payload;
-      //   deleting the contact
-      let contact = [...state.users].filter(
-        (ele) => ele.email !== parseInt(email)
-      );
+      // find by email and filter it 
+      let contact = [...state.users].filter(ele => ele.email !== email);
       return {
         ...state,
-        users: contact,
-      };
-
+        users : contact
+      }
     //   return state byDefault
     default:
       return state;

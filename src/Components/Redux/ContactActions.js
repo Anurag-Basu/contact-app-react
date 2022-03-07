@@ -44,7 +44,6 @@ export const editContact = (contact) => {
 };
 
 export const deleteContact = (id) => {
-  console.log(id);
   return {
     type: DELETE_CONTACT,
     payload: id,

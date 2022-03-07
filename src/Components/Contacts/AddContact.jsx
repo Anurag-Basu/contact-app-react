@@ -4,6 +4,7 @@ import { toast } from "react-toastify";
 import { useDispatch, useSelector } from "react-redux";
 import { addContact } from "../Redux/ContactActions";
 import { useState } from "react";
+import { Link } from "react-router-dom";
 
 function AddContacts() {
   // fetch contact from store
@@ -53,6 +54,8 @@ function AddContacts() {
           email: "",
           phone: "",
         });
+        // success notification
+        toast.success("Contact Added Successfully");
         // dispatch addcontact with response data
         dispatch(addContact(response.data));
       })
@@ -103,6 +106,9 @@ function AddContacts() {
             <button className="btn btn-block btn-dark m-2" type="submit">
               Add Contact
             </button>
+            <Link to="/" className="btn btn-block btn-danger m-2">
+              Go back
+            </Link>
           </form>
         </div>
       </div>
